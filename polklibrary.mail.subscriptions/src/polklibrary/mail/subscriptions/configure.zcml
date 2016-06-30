@@ -1,0 +1,50 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="polklibrary.mail.subscriptions">
+
+  <includeDependencies package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package=".browser" />
+  <include package=".models" />
+
+
+  <genericsetup:registerProfile
+      name="default"
+      title="polklibrary.mail.subscriptions"
+      directory="profiles/default"
+      description="Installs the polklibrary.mail.subscriptions add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="polklibrary.mail.subscriptions-postInstall"
+      title="polklibrary.mail.subscriptions post_install import step"
+      description="Post install import step from polklibrary.mail.subscriptions"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="polklibrary.mail.subscriptions"
+      directory="profiles/uninstall"
+      description="Uninstalls the polklibrary.mail.subscriptions add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="polklibrary.mail.subscriptions-uninstall"
+      title="polklibrary.mail.subscriptions uninstall import step"
+      description="Import step run during ininstalling polklibrary.mail.subscriptions"
+      handler=".setuphandlers.uninstall">
+  </genericsetup:importStep>
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="polklibrary.mail.subscriptions-hiddenprofiles" />
+
+</configure>

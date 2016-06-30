@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+      name="polklibrary.mail.subscriptions"
+      interface="polklibrary.mail.subscriptions.interfaces.IPolklibraryMailSubscriptionsLayer"
+      />
+</layers>
