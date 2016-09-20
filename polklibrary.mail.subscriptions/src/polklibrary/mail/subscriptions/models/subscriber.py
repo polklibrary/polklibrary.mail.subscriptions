@@ -27,6 +27,11 @@ class ISubscriber(model.Schema):
             default=u"",
         )
         
+    notes = schema.Text(
+            title=u"Internal Notes",
+            required=False,
+            default=u"",
+        )
         
         
         

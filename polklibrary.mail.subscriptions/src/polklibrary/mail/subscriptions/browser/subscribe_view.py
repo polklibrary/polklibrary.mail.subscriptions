@@ -17,8 +17,6 @@ class SubscribeView(BrowserView):
         self.subscribed = False
         self.unsubscribed = False
     
-    
-    
         if 'form.subscriber.submit' in self.request.form:
             email = self.request.form.get('form.subscriber.email','').strip()
             match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
@@ -33,8 +31,6 @@ class SubscribeView(BrowserView):
                 self.subscribed = True
                 self.email = email
                 
-                
-
         if 'form.subscriber.cancel' in self.request.form:
             email = self.request.form.get('form.subscriber.email','').strip()
             match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
